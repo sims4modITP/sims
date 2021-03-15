@@ -1,8 +1,11 @@
 # sims
 
+
 Quick Guide zum Workspace
 
 IMPORTANT:  
+
+Das .7z könnt ihr mithilfe von 7zip öffnen <- ist ein Filemanager
 
 Bevor ihr versucht ein Skript im Workspace zu erstellen müsst ihr eure Pfade im settings.py ,
 dementsprechend wo euer Sims Pfad ist, ändern.
