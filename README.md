@@ -9,20 +9,20 @@ dementsprechend wo euer Sims Pfad ist, ändern.
 
 Also muss das hier: 
 
-                    game_folder = os.path.join('D:', os.sep, 'Games', 'The Sims 4')
+       game_folder = os.path.join('D:', os.sep, 'Games', 'The Sims 4')
 
 z.B. zu das hier:
 
-                    game_folder = os.path.join('C:', os.sep, 'Prgramme (x86)', 'Steam', 'steamapps', 'common' 'The Sims 4') <- (das hier ist der default Steampfad)
+       game_folder = os.path.join('C:', os.sep, 'Prgramme (x86)', 'Steam', 'steamapps', 'common' 'The Sims 4') <- (das hier ist der default Steampfad)
                     
                     
 
-                                                !!!!!!!ALSO UMBEDINGT CHECKEN WO EUER SIMS GESPEICHERT IST !!!!!!!!
+                                              !!!!!!!ALSO UMBEDINGT CHECKEN WO EUER SIMS GESPEICHERT IST!!!!!!!!
                                                 
                                                 
 Der Game Folder sollte das hier standard sein: 
 
-mods_folder = os.path.expanduser(os.path.join('~', 'OneDrive', 'Dokumente', 'Electronic Arts', 'The Sims 4', 'Mods')) 
+        mods_folder = os.path.expanduser(os.path.join('~', 'OneDrive', 'Dokumente', 'Electronic Arts', 'The Sims 4', 'Mods')) 
 
 (Achtet drauf ob bei euch The Sims 4 oder Die Sims 4 steht und ob es im OneDrive auch wirklich gespeichert ist)
 
