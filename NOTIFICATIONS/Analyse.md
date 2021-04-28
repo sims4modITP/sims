@@ -129,3 +129,14 @@ Wenn ihr das alles gemacht habt sollte die Notification dann so aussehen:
 
 ![image](https://user-images.githubusercontent.com/71192659/116393612-28b16180-a822-11eb-918b-5a58e28e1e88.png)
 
+## String ID
+Für die String IDs hab ich einfach den Value von CommonStringId.TESTING_TEST_TEXT_WITH_STRING_TOKEN geändert und diesen verwendet.
+
+Zuerst öffnet ihr in Sims4 Studio **My Projects** und wählt dann S4CL package.Die erste Zeile der Tabelle links ist der String Table.
+Das wählt ihr aus und geht dann auf **Elemente bearbeiten...** 
+
+![image](https://user-images.githubusercontent.com/71192659/116394875-b772ae00-a823-11eb-9eeb-cf52961035d0.png)
+
+
+Um den Value von **CommonStringId.TESTING_TEST_TEXT_WITH_STRING_TOKEN** zu ändern sucht ihr den Eintrag mit **Test Text 0 string**. 
+Ändert den Value, kopiert den **Key**,wandelt es in Dezimal um, saved das ganze und schon könnt ihr diese ID einsetzten und verwenden.
