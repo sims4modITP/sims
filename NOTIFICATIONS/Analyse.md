@@ -32,7 +32,7 @@ Das sind einmal alle imports die ihr benötigt für den Code.
         # LocalizedStrings within other LocalizedStrings
         title_tokens = (
             CommonLocalizationUtils.create_localized_string(
-                "string id",
+                "string id",#string id form string table
                 text_color=CommonLocalizedStringColor.BLUE
             ),
         )
