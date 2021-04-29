@@ -5,8 +5,8 @@ Input-Dialog
 Diese Funktion beschreibt einfach den outcome bzw. den input durch den Player.
 Und da wir sowieso Rechenaufgaben haben, ist es besser als Template den Float Input zu nehmen, weswegen jetzt auch "choice" also der input ein float ist.
 Outcome hierbei ist einfach wofür sich der Spieler entschieden hat.
-
-![image](https://user-images.githubusercontent.com/80634953/116288464-d7599180-a791-11eb-920b-9e1203f37741.png)
+Vergleich ob richtig:
+![image](https://user-images.githubusercontent.com/80634953/116568092-7dc7a300-a908-11eb-850e-bc1719bdca8a.png)
 
 
 Das sieht man in der common_choice_outcome.py
