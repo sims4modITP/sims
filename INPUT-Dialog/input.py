@@ -35,8 +35,13 @@ def _common_testing_show_input_float_dialog(_connection: int=None):
 def _common_testing_show_input_float_dialog(_connection: int = None):
     output = sims4.commands.CheatOutput(_connection)
     output('Showing test input float dialog.')
-
+    
     def _on_chosen(choice: float, outcome: CommonChoiceOutcome):
+        if choice == 6:
+            output("answer right")
+        else:
+            output("answer wrong")
+
         output('Chose {} with result: {}.'.format(pformat(choice), pformat(outcome)))
 
     try:
