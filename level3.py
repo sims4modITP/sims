@@ -12,8 +12,10 @@ from sims4communitylib.dialogs.common_ok_dialog import CommonOkDialog #die commo
 # alle Dialogue für die dritte Stufe
 
 
-# 1 Ok Dialog => Lobna
+# 1 Input Dialog => (Miriam|Chiara)
 
+
+# 1 Ok Dialog => Lobna
 
 
 # 2 Ok Dialog => Chiara
@@ -105,4 +107,8 @@ def three_third_dialogue(_connection: int = None):
         output('Failed to show ok dialog, please locate your exception log file.')
     output('Done showing.')
 
-# Notification => freie Wahl
+    
+# 2 Input Dialog => (Miriam|Chiara)
+
+
+# Notification => Lobna
