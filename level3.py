@@ -1,6 +1,10 @@
 # alle imports für einen ok - dialog
 import sims4.commands
 
+
+from ScriptLibrary.sims4communitylib.dialogs.common_input_float_dialog import CommonInputFloatDialog
+from sims4communitylib.dialogs.common_choice_outcome import CommonChoiceOutcome
+from pprint import pformat
 from sims4communitylib.enums.strings_enum import CommonStringId
 from sims4communitylib.exceptions.common_exceptions_handler import CommonExceptionHandler
 from sims4communitylib.modinfo import ModInfo
@@ -13,6 +17,40 @@ from sims4communitylib.dialogs.common_ok_dialog import CommonOkDialog #die commo
 
 
 # 1 Input Dialog => (Miriam|Chiara)
+@sims4.commands.Command('input_first_level_three', command_type=sims4.commands.CommandType.Live)
+def _common_testing_show_input_float_dialog(_connection: int = None):
+    output = sims4.commands.CheatOutput(_connection)
+    output('Showing test input float dialog.')
+
+    def _on_chosen(choice: float, outcome: CommonChoiceOutcome):
+        if choice == 2 or choice == 3:
+            output("answer right")
+        else:
+            output("answer wrong")
+
+        output('Chose {} with result: {}.'.format(pformat(choice), pformat(outcome)))
+
+    try:
+        # LocalizedStrings within other LocalizedStrings
+        title_tokens = (CommonLocalizationUtils.create_localized_string
+                        ("You nearly did it!", text_color=CommonLocalizedStringColor.BLUE),)
+        description_tokens = (CommonLocalizationUtils.create_localized_string
+                              ("Your have nearly made it to the final destination of your work to reach the next hint.\nThere is one more thing you have to solve before you can take a look at it: \n\nWhat might be the Evil behind all that \n(1) Pop-Culture \n(2) Capitalism \n(3) Men ",
+                               tokens=(CommonSimUtils.get_active_sim_info(),),
+                               text_color=CommonLocalizedStringColor.BLUE),)
+        dialog = CommonInputFloatDialog(
+            CommonStringId.TESTING_TEST_TEXT_WITH_STRING_TOKEN,
+            CommonStringId.TESTING_TEST_TEXT_WITH_STRING_TOKEN,
+            0.0,
+            title_tokens=title_tokens,
+            description_tokens=description_tokens
+        )
+        dialog.show(on_submit=_on_chosen)
+    except Exception as ex:
+        CommonExceptionHandler.log_exception(ModInfo.get_identity(), 'Failed to show dialog', exception=ex)
+        output('Failed to show dialog, please locate your exception log file.')
+    output('Done showing.')
+
 
 
 # 1 Ok Dialog => Lobna
