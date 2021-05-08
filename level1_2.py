@@ -13,7 +13,7 @@ from sims4communitylib.dialogs.common_ok_dialog import CommonOkDialog
 
 # Coding Level 1
 
-@sims4.commands.Command('level1:ok1', command_type=sims4.commands.CommandType.Live)
+@sims4.commands.Command('level1_ok1', command_type=sims4.commands.CommandType.Live)
 def _ok(_connection: int = None):
     output = sims4.commands.CheatOutput(_connection)
     output('Showing test ok dialog.')
