@@ -44,7 +44,42 @@ def _ok(_connection: int = None):
         output('Failed to show ok dialog, please locate your exception log file.')
     output('Done showing.')
 
+    
+@sims4.commands.Command('level1_notif1', command_type=sims4.commands.CommandType.Live)
+def _common_testing_show_basic_notification(_connection: int = None):
+    output = sims4.commands.CheatOutput(_connection)
 
+
+    tgt_client = services.client_manager().get(_connection)
+    output('first notif')
+    try:
+        # LocalizedStrings within other LocalizedStrings
+        title_tokens = (
+            CommonLocalizationUtils.create_localized_string(
+                "string id",  # string id form string table
+                text_color=CommonLocalizedStringColor.BLUE
+            ),
+        )
+        description_tokens = (
+            CommonLocalizationUtils.create_localized_string(
+                "string id",
+                text_color=CommonLocalizedStringColor.BLUE
+            ),
+        )
+        dialog = CommonBasicNotification(
+            "RUG SALE!!!",
+            "XXXX Area Rug\nHave a look at this beautiful handwoven rug! It is made of the finest Materials only, wisely chosen by Wayfair. The natural green colour is a perfect fit for all living rooms!\nMake your house feel like a HOME!\nDetails:\nName: XXXX Green Area Rug\nSize: Rectangle 5’ x 8’\nOverall Product Weight: 56 lb.\nFree Shipping on orders over $35.00\n",
+            title_tokens=title_tokens,
+            description_tokens=description_tokens,
+        )
+        dialog.show(IconInfoData(CommonResourceUtils.get_resource_key(Types.PNG, 16900524886024814375)))
+    except Exception as ex:
+        CommonExceptionHandler.log_exception(ModInfo.get_identity(), 'Failed to show a basic notification you fucked up',
+                                             exception=ex)
+        output('Failed to show a basic notification, please locate your exception log file.')
+    output('Done showing.')
+    
+    
 @sims4.commands.Command('level1_ok2', command_type=sims4.commands.CommandType.Live)
 def _ok(_connection: int = None):
     output = sims4.commands.CheatOutput(_connection)
@@ -75,6 +110,41 @@ def _ok(_connection: int = None):
         output('Failed to show ok dialog, please locate your exception log file.')
     output('Done showing.')
 
+    
+@sims4.commands.Command('level1_notif2', command_type=sims4.commands.CommandType.Live)
+def _common_testing_show_basic_notification(_connection: int = None):
+    output = sims4.commands.CheatOutput(_connection)
+
+
+    tgt_client = services.client_manager().get(_connection)
+    output('first notif')
+    try:
+        # LocalizedStrings within other LocalizedStrings
+        title_tokens = (
+            CommonLocalizationUtils.create_localized_string(
+                "string id",  # string id form string table
+                text_color=CommonLocalizedStringColor.BLUE
+            ),
+        )
+        description_tokens = (
+            CommonLocalizationUtils.create_localized_string(
+                "string id",
+                text_color=CommonLocalizedStringColor.BLUE
+            ),
+        )
+        dialog = CommonBasicNotification(
+            "Hmmmmm...",
+            "This really is kind of suss, I cannot seem to get that name out of my head. \nWhere do I know it from? I must find out!",
+            title_tokens=title_tokens,
+            description_tokens=description_tokens,
+        )
+        dialog.show()
+    except Exception as ex:
+        CommonExceptionHandler.log_exception(ModInfo.get_identity(), 'Failed to show a basic notification you fucked up',
+                                             exception=ex)
+        output('Failed to show a basic notification, please locate your exception log file.')
+    output('Done showing.')
+    
 
 @sims4.commands.Command('level1_ok3', command_type=sims4.commands.CommandType.Live)
 def _ok(_connection: int = None):
