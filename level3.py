@@ -150,3 +150,33 @@ def three_third_dialogue(_connection: int = None):
 
 
 # Notification => Lobna
+def notif():
+    try:
+        # LocalizedStrings within other LocalizedStrings
+        title_tokens = (
+            CommonLocalizationUtils.create_localized_string(
+                0,
+                text_color=CommonLocalizedStringColor.GREEN
+            ),
+        )
+        description_tokens = (
+            CommonLocalizationUtils.create_localized_string(
+                0,
+                text_color=CommonLocalizedStringColor.RED
+            ),
+        )
+        dialog = CommonBasicNotification(
+            # CommonStringId.TESTING_TEST_TEXT_WITH_STRING_TOKEN,
+            # CommonStringId.TESTING_TEST_TEXT_WITH_STRING_TOKEN,
+            "",
+            "Those names … and the weight. Something is strange here, why are those kept a secret? It doesn’t make any sense. But I do feel like I know these names they sound strangely familiar. Wasn’t there a case of missing children last month that had the name Charlotte Brandt in it? I have to get those police files. I just need to know for sure!",
+            title_tokens=title_tokens,
+            description_tokens=description_tokens,
+            urgency=UiDialogNotification.UiDialogNotificationUrgency.DEFAULT
+        )
+        dialog.show()
+    except Exception as ex:
+        CommonExceptionHandler.log_exception(ModInfo.get_identity(),
+                                             'Failed to show a basic notification you fucked up', exception=ex)
+    return 0
+
