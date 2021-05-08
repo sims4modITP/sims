@@ -54,7 +54,30 @@ def _common_testing_show_input_float_dialog(_connection: int = None):
 
 
 # 1 Ok Dialog => Lobna
-
+def _3ok1():
+    try:
+        title_tokens = (CommonLocalizationUtils.create_localized_string('Story Headline',
+                                                                        text_color=CommonLocalizedStringColor.GREEN),)
+        description_tokens = (
+            CommonLocalizationUtils.create_localized_string('Actual Story',
+                                                            tokens=(CommonSimUtils.get_active_sim_info(),),
+                                                            text_color=CommonLocalizedStringColor.BLUE),)
+        dialog = CommonOkDialog(
+            'Valenti Remer Gray/Blue Area Rug',
+            # this is where the headline is written -> insert headline here
+            'Special things stand the test of time. Used look meets modern. This rug cannot be described any better. This style shows the classic counter-reaction to swish designer pieces and is so special that you need to look at least twice. Upcycling is the new trend. Exceptional colours make this small work of art into a real eye catcher with character. Anyone can do boring. The Oeko-Tex 100 certified quality is not only a low price but also durable and dirt-repellent. Of course the fabric used is suitable for use on underfloor heating. Bring a trend setter home, which sets new standards in combination with your furniture.Details:\n\n\nName: Valenti Remer Gray/Blue Area Rug\n\nSize: Rectangle 5’ x 6’\n\nOverall Product Weight: 39.5 lb.\n\nFree Shipping on orders over $35.00\n\n'
+            # this is where the body part is written -> insert tet here
+            title_tokens=title_tokens,
+            description_tokens=description_tokens,
+            ok_text_identifier=CommonLocalizationUtils.create_localized_string('Show Next Object',
+                                                                               text_color=CommonLocalizedStringColor.GREEN)
+        )
+        # dialog.show(IconInfoData(CommonResourceUtils.get_resource_key(Types.PNG, 7169552662410693051)))
+        dialog.show()
+    except Exception as ex:
+        CommonExceptionHandler.log_exception(ModInfo.get_identity(), 'Failed to show dialog',
+                                             exception=ex)  # falls error -> log
+      
 
 # 2 Ok Dialog => Chiara
 @sims4.commands.Command('three_second_dialogue', command_type=sims4.commands.CommandType.Live)
