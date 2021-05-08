@@ -1,4 +1,14 @@
 # Codes für level 1 und 2 
+import sims4.commands
+
+from sims4communitylib.enums.strings_enum import CommonStringId
+from sims4communitylib.exceptions.common_exceptions_handler import CommonExceptionHandler
+from sims4communitylib.modinfo import ModInfo
+from sims4communitylib.utils.localization.common_localized_string_colors import CommonLocalizedStringColor
+from sims4communitylib.utils.localization.common_localization_utils import CommonLocalizationUtils
+from sims4communitylib.utils.sims.common_sim_utils import CommonSimUtils
+from ui.ui_dialog import UiDialogOk
+from sims4communitylib.dialogs.common_ok_dialog import CommonOkDialog #die common_ok_dialog klasse wird importiert...
 
 
 @sims4.commands.Command('firstdia', command_type=sims4.commands.CommandType.Live)
