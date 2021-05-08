@@ -20,7 +20,7 @@ from sims4communitylib.enums.skills_enum import CommonSkillId
 from sims4communitylib.utils.sims.common_sim_skill_utils import CommonSimSkillUtils
 
 
-def run_once(function):
+def run_once(function):#decorator to only run all functions once
     def wrapper(*args, **kwargs):
         if not wrapper.has_run:
             wrapper.has_run = True
@@ -360,8 +360,8 @@ class skill3:
                                                  exception=ex)  # falls error -> log
 
 
-@CommonInjectionUtils.inject_safely_into(ModInfo.get_identity(), Skill, "on_skill_level_up")
-def _load_foo(original, self, *args, **kwargs) -> Any:
+@CommonInjectionUtils.inject_safely_into(ModInfo.get_identity(), Skill, "on_skill_level_up")#first param identity,second target_object,third target_function of object you want to inject your function into
+def _load_mod(original, self, *args, **kwargs) -> Any:
     simsskill = CommonSimSkillUtils.get_current_skill_level(CommonSimUtils.get_active_sim_info(), CommonSkillId.FITNESS)
     if simsskill == 3:
         skill1().ok1()
