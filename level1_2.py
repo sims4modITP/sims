@@ -146,6 +146,38 @@ def _common_testing_show_basic_notification(_connection: int = None):
     output('Done showing.')
     
 
+@sims4.commands.Command('level1_notif3', command_type=sims4.commands.CommandType.Live)
+def _common_testing_show_basic_notification(_connection: int=None):
+    output = sims4.commands.CheatOutput(_connection)
+    tgt_client = services.client_manager().get(_connection)
+    output('third notif')
+    try:
+        # LocalizedStrings within other LocalizedStrings
+        title_tokens = (
+            CommonLocalizationUtils.create_localized_string(
+                "string id",#string id form string table
+                text_color=CommonLocalizedStringColor.BLUE
+            ),
+        )
+        description_tokens = (
+            CommonLocalizationUtils.create_localized_string(
+                "string id",
+                text_color=CommonLocalizedStringColor.BLUE
+            ),
+        )
+        dialog = CommonBasicNotification(
+            "Mhmm... ",
+            "XXXX is still stuck in my head.\nWhere do I know you from?\n",
+            title_tokens=title_tokens,
+            description_tokens=description_tokens,
+        )
+        dialog.show()
+    except Exception as ex:
+        CommonExceptionHandler.log_exception(ModInfo.get_identity(), 'Failed to show a basic notification you fucked up', exception=ex)
+        output('Failed to show a basic notification, please locate your exception log file.')
+    output('Done showing.')    
+    
+    
 @sims4.commands.Command('level1_ok3', command_type=sims4.commands.CommandType.Live)
 def _ok(_connection: int = None):
     output = sims4.commands.CheatOutput(_connection)
