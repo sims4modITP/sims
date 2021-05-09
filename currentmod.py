@@ -363,10 +363,10 @@ class skill3:
             CommonExceptionHandler.log_exception(ModInfo.get_identity(), 'Failed to show dialog',
                                                  exception=ex)  # falls error -> log
 
-
-@CommonInjectionUtils.inject_safely_into(ModInfo.get_identity(), Skill, "on_skill_level_up")
-def _load_foo(original, self, *args, **kwargs) -> Any:
-    simsskill = CommonSimSkillUtils.get_current_skill_level(CommonSimUtils.get_active_sim_info(), CommonSkillId.ADULT_MAJOR_PROGRAMMING)
+@CommonInjectionUtils.inject_safely_into(ModInfo.get_identity(), Skill, "_show_level_notification")
+def _load_skill1(original, self, *args, **kwargs) -> Any:
+    simsskill = CommonSimSkillUtils.get_current_skill_level(CommonSimUtils.get_active_sim_info(),
+                                                            CommonSkillId.ADULT_MAJOR_PROGRAMMING)
     if simsskill == 1:
         skill1().ok1()
         skill1().common_testing_show_basic_notification()
@@ -374,7 +374,12 @@ def _load_foo(original, self, *args, **kwargs) -> Any:
         skill1().common_testing_show_basic_notification2()
         skill1().common_testing_show_basic_notification3()
         skill1().ok3()
-    elif simsskill == 2:
+    return original(self, *args, **kwargs)
+
+@CommonInjectionUtils.inject_safely_into(ModInfo.get_identity(), Skill, "on_skill_level_up")
+def _load_foo(original, self, *args, **kwargs) -> Any:
+    simsskill = CommonSimSkillUtils.get_current_skill_level(CommonSimUtils.get_active_sim_info(), CommonSkillId.ADULT_MAJOR_PROGRAMMING)
+    if simsskill == 2:
         skill2().ok()
         #skill2().item()
     elif simsskill == 3:
