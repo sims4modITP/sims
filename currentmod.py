@@ -3,6 +3,7 @@ from sims4communitylib.dialogs.common_choice_outcome import CommonChoiceOutcome
 from sims4communitylib.dialogs.common_input_float_dialog import CommonInputFloatDialog
 from sims4communitylib.dialogs.common_ok_dialog import CommonOkDialog
 from sims4communitylib.enums.strings_enum import CommonStringId
+from sims4communitylib.utils.sims.common_sim_inventory_utils import CommonSimInventoryUtils
 from sims4communitylib.utils.sims.common_sim_utils import CommonSimUtils
 from distributor.shared_messages import IconInfoData
 from ui.ui_dialog import UiDialogOk
@@ -20,7 +21,7 @@ from sims4communitylib.enums.skills_enum import CommonSkillId
 from sims4communitylib.utils.sims.common_sim_skill_utils import CommonSimSkillUtils
 
 
-def run_once(function):#decorator to only run all functions once
+def run_once(function):
     def wrapper(*args, **kwargs):
         if not wrapper.has_run:
             wrapper.has_run = True
@@ -211,6 +212,9 @@ class skill2:
         except Exception as ex:
             CommonExceptionHandler.log_exception(ModInfo.get_identity(), 'Failed to show dialog', exception=ex)
 
+    def item(self):
+        CommonSimInventoryUtils.add_to_inventory(CommonSimUtils.get_active_sim_info(), 34330, 3)#spawn item in inventory 34330 instance id for programming book lmao
+
 
 class skill3:
     @run_once
@@ -360,19 +364,20 @@ class skill3:
                                                  exception=ex)  # falls error -> log
 
 
-@CommonInjectionUtils.inject_safely_into(ModInfo.get_identity(), Skill, "on_skill_level_up")#first param identity,second target_object,third target_function of object you want to inject your function into
-def _load_mod(original, self, *args, **kwargs) -> Any:
-    simsskill = CommonSimSkillUtils.get_current_skill_level(CommonSimUtils.get_active_sim_info(), CommonSkillId.FITNESS)
-    if simsskill == 3:
+@CommonInjectionUtils.inject_safely_into(ModInfo.get_identity(), Skill, "on_skill_level_up")
+def _load_foo(original, self, *args, **kwargs) -> Any:
+    simsskill = CommonSimSkillUtils.get_current_skill_level(CommonSimUtils.get_active_sim_info(), CommonSkillId.ADULT_MAJOR_PROGRAMMING)
+    if simsskill == 1:
         skill1().ok1()
         skill1().common_testing_show_basic_notification()
         skill1().ok2()
         skill1().common_testing_show_basic_notification2()
         skill1().common_testing_show_basic_notification3()
         skill1().ok3()
-    elif simsskill == 4:
+    elif simsskill == 2:
         skill2().ok()
-    elif simsskill == 5:
+        skill2().item()
+    elif simsskill == 3:
         skill3().ok1()
         skill3().ok()
         skill3().three_third_dialogue()
