@@ -376,7 +376,7 @@ def _load_foo(original, self, *args, **kwargs) -> Any:
         skill1().ok3()
     elif simsskill == 2:
         skill2().ok()
-        skill2().item()
+        #skill2().item()
     elif simsskill == 3:
         skill3().ok1()
         skill3().ok()
