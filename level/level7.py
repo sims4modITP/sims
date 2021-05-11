@@ -51,22 +51,11 @@ def _7ok1(_connection: int = None):
 
 # notification
 import sims4.commands
-from typing import Any, Union, Iterator, Tuple
-from distributor.shared_messages import IconInfoData
-from protocolbuffers.Localization_pb2 import LocalizedString
-from sims4communitylib.enums.strings_enum import CommonStringId
-import services
 from sims4communitylib.notifications.common_basic_notification import CommonBasicNotification
-from sims4communitylib.utils.common_resource_utils import CommonResourceUtils
-from sims4.resources import Types
-from sims4communitylib.utils.objects.common_object_utils import CommonObjectUtils
 from sims4communitylib.exceptions.common_exceptions_handler import CommonExceptionHandler
 from sims4communitylib.modinfo import ModInfo
 from sims4communitylib.utils.localization.common_localized_string_colors import CommonLocalizedStringColor
 from sims4communitylib.utils.localization.common_localization_utils import CommonLocalizationUtils
-from sims4communitylib.utils.sims.common_sim_utils import CommonSimUtils
-from ui.ui_dialog import UiDialogResponse
-from ui.ui_dialog_notification import UiDialogNotification
 
 
 @sims4.commands.Command('notif1_level_7', command_type=sims4.commands.CommandType.Live)
