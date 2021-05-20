@@ -59,3 +59,14 @@ tokens
 da kommt die on_chosen funktion ins Spiel - oben erklärt
 
 ![image](https://user-images.githubusercontent.com/80634953/116291587-0cb3ae80-a795-11eb-8e77-55443b852156.png)
+
+
+INFOS FÜR DEN DIALOG DER SO LANGE AUFPOPPT BIS ETWAS RICHTIGES EINGEGEBEN WURDE:
+![image](https://user-images.githubusercontent.com/80634958/118989943-bd6f3100-b982-11eb-9052-df746752696f.png)
+Hier wird ein zweiter dialog generiert be dem nur der Titel anders ist -> "try again" diesmal in rot damit es auffälliger ist. Beim ersten mal wird dialog.show aufgerufen, bei jedem eiteren Mal wird dann dialog2.show aufgerufen weil man ja die "warning" für den falschen Input ahben will
+
+![image](https://user-images.githubusercontent.com/80634958/118990361-19d25080-b983-11eb-92e0-1303d93e5b70.png)
+Hier wird bei der if bedingung ein choice == None hinzugefügt um zu überprüfen ob überhaupt eine choide gemacht wurde -> wenn nicht wurde auf abbrechen geklickt und der dialog verschwindet
+Falls eine choice gemacht wurde die falsch ist wird die funktion durch dialog2.show quasi rekurzsiv aufgerufen .. das funktioniert so lange bis entweder die richtige eingabe gemacht wurde oder auf abbrechen geklickt wurde
+
+der rest bleibt eh gleich ^^
