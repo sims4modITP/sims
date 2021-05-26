@@ -118,4 +118,65 @@ def _common_testing_show_targeted_question_dialog(_connection: int = None):
     )
 
 
+# Second notification - right input
+@sims4.commands.Command('notif2_level_6', command_type=sims4.commands.CommandType.Live)
+def notif2_level_6(_connection: int = None):
+    try:
+        title_tokens = (
+            CommonLocalizationUtils.create_localized_string(
+                "string id",  # string id form string table
+                text_color=CommonLocalizedStringColor.BLUE
+            ),
+        )
+        description_tokens = (
+            CommonLocalizationUtils.create_localized_string(
+                "string id",
+                text_color=CommonLocalizedStringColor.BLUE
+            ),
+        )
+        dialog = CommonBasicNotification(
+            "",
+            "XXXX?? What have they to do with all of this? Weren’t they kidnapped themselves? Why did they disappear? "
+            "What if they are a part of this? No, I do not want to believe this. I cannot believe this. "
+            "If they are responsible for all that has happened to those poor children...\n\n"
+            "All the pain that I went through. I cannot let history repeat itself! I will not give up that easily! ",
+            title_tokens=title_tokens,
+            description_tokens=description_tokens,
+        )
+        dialog.show()
+    except Exception as ex:
+        CommonExceptionHandler.log_exception(ModInfo.get_identity(),
+                                             'Failed to show a basic notification you fucked up',
+                                             exception=ex)
+
+
+# Third notification - wrong input
+@sims4.commands.Command('notif3_level_6', command_type=sims4.commands.CommandType.Live)
+def notif3_level_6(_connection: int = None):
+    try:
+        title_tokens = (
+            CommonLocalizationUtils.create_localized_string(
+                "string id",  # string id form string table
+                text_color=CommonLocalizedStringColor.BLUE
+            ),
+        )
+        description_tokens = (
+            CommonLocalizationUtils.create_localized_string(
+                "string id",
+                text_color=CommonLocalizedStringColor.BLUE
+            ),
+        )
+        dialog = CommonBasicNotification(
+            "",
+            "That doesn’t seem to be right, there has to be something bigger to it. "
+            "I just cant quite put my finger on what it is. Now focus!!",
+            title_tokens=title_tokens,
+            description_tokens=description_tokens,
+        )
+        dialog.show()
+    except Exception as ex:
+        CommonExceptionHandler.log_exception(ModInfo.get_identity(),
+                                             'Failed to show a basic notification you fucked up',
+                                             exception=ex)
+
 
