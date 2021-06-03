@@ -1,0 +1,1 @@
+- Karriere Dateien => Bitte beide in euren Sims 4 MODS ordner reinkopieren und ihr solltet die Karriere spielen können
