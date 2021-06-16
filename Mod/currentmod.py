@@ -1043,10 +1043,12 @@ def _load_skill1(original, self, *args, **kwargs) -> Any:
 def _load_foo(original, self, *args, **kwargs) -> Any:
     simsskill = CommonSimSkillUtils.get_current_skill_level(CommonSimUtils.get_active_sim_info(),
                                                             CommonSkillId.ADULT_MAJOR_PROGRAMMING)
+    logicskill = CommonSimSkillUtils.get_current_skill_level(CommonSimUtils.get_active_sim_info(), CommonSkillId.ADULT_MAJOR_LOGIC)
+
     if simsskill == 2:
         skill2().ok()
         skill2().item()
-    elif simsskill == 3:
+    elif simsskill == 3 and logicskill == 2:
         skill3().ok1()
         skill3().ok()
         skill3().three_third_dialogue()
@@ -1062,7 +1064,7 @@ def _load_foo(original, self, *args, **kwargs) -> Any:
         skill4()._ok2()
         skill4()._ok3()
         skill4().notification2()
-    elif simsskill == 5:
+    elif simsskill == 5 and logicskill == 3:
         skill4().oklvl5()
         skill4().notificationlvl5()
     elif simsskill == 6:
@@ -1076,7 +1078,7 @@ def _load_foo(original, self, *args, **kwargs) -> Any:
     elif simsskill == 9:
         skill9().notification()
         skill9().ok()
-    elif simsskill == 10:
+    elif simsskill == 10 and logicskill == 4:
         skill10().common_testing_show_targeted_question_dialog()
         skill10().ok()
 
