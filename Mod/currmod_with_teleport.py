@@ -1101,9 +1101,6 @@ def _common_on_sim_load(original, self, *args, **kwargs) -> Any:
 
             CommonSimInteractionUtils.cancel_all_queued_or_running_interactions(
                 CommonSimUtils.get_sim_info_of_sim_with_name("Bella", "Goth"), "to make sth else")
-            # CommonSimInteractionUtils.queue_social_mixer_interaction(
-            #        CommonSimUtils.get_sim_info_of_sim_with_name("Bella", "Goth"), 26177, 13998,
-            #      CommonSimUtils.get_active_sim_info())
             CommonSimInteractionUtils.queue_super_interaction(
                 CommonSimUtils.get_sim_info_of_sim_with_name("Bella", "Goth"),
                 199524, CommonSimUtils.get_active_sim_info())
@@ -1111,7 +1108,6 @@ def _common_on_sim_load(original, self, *args, **kwargs) -> Any:
                                                                        199524) or CommonSimInteractionUtils.has_interaction_running_or_queued(
             CommonSimUtils.get_active_sim_info(), 112420):
             modify_fund_helper(1000, Consts_pb2.TELEMETRY_MONEY_CHEAT, CommonSimUtils.get_active_sim_info())
-        # CommonSimEventDispatcherService.get()._on_sim_load(self, *args, **kwargs)
     return original(self, *args, **kwargs)
 
 
