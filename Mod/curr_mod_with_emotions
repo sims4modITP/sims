@@ -1094,7 +1094,7 @@ def _load_foo(original, self, *args, **kwargs) -> Any:
     elif simsskill == 10:
         skill10().common_testing_show_targeted_question_dialog()
         skill10().ok()
-        CommonBuffUtils.add_buff(CommonSimUtils.get_active_sim_info(), 39515,
+        CommonBuffUtils.add_buff(CommonSimUtils.get_active_sim_info(), 37541,
                                  buff_reason=CommonLocalizationUtils.create_localized_string(1277988298))
 
     return original(self, *args, **kwargs)
