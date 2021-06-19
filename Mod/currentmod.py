@@ -1,16 +1,20 @@
 from typing import Any
 
 # from filters.sim_template import TunableSimTemplate
-from interactions.interaction_queue import InteractionQueue
+# from interactions.base.super_interaction import SuperInteraction
+# from interactions.interaction_queue import InteractionQueue
 from protocolbuffers import Consts_pb2
 from server_commands.sim_commands import modify_fund_helper
 from sims.sim_info import SimInfo
+# rom sims.sim_spawner import SimCreator, SimSpawner
 from sims4communitylib.classes.math.common_vector3 import CommonVector3
 from sims4communitylib.dialogs.common_choice_outcome import CommonChoiceOutcome
 from sims4communitylib.dialogs.common_input_float_dialog import CommonInputFloatDialog
 from sims4communitylib.dialogs.common_ok_dialog import CommonOkDialog
 from sims4communitylib.dialogs.common_targeted_question_dialog import CommonTargetedQuestionDialog
 from sims4communitylib.enums.strings_enum import CommonStringId
+from sims4communitylib.events.interaction.common_interaction_event_dispatcher import \
+    CommonInteractionEventDispatcherService
 from sims4communitylib.utils.location.common_location_utils import CommonLocationUtils
 from sims4communitylib.utils.sims.common_sim_interaction_utils import CommonSimInteractionUtils
 from sims4communitylib.utils.sims.common_sim_location_utils import CommonSimLocationUtils
@@ -202,6 +206,9 @@ class skill1:
         except Exception as ex:
             CommonExceptionHandler.log_exception(ModInfo.get_identity(), 'Failed to show dialog', exception=ex)
 
+        CommonBuffUtils.add_buff(CommonSimUtils.get_active_sim_info(), 241020,
+                                 buff_reason=CommonLocalizationUtils.create_localized_string(4182591747))
+
 
 class skill2:
     def ok(self):
@@ -230,7 +237,7 @@ class skill2:
     def item(self):
         CommonSimInventoryUtils.add_to_inventory(CommonSimUtils.get_active_sim_info(), 34318, 3)
         CommonBuffUtils.add_buff(CommonSimUtils.get_active_sim_info(), 31038,
-                                 buff_reason=CommonLocalizationUtils.create_localized_string(90982972))
+                                 buff_reason=CommonLocalizationUtils.create_localized_string(2822329173))
 
 
 class skill3:
@@ -339,8 +346,7 @@ class skill3:
             # LocalizedStrings within other LocalizedStrings
             title_tokens = (CommonLocalizationUtils.create_localized_string
                             ("You nearly did it!", text_color=CommonLocalizedStringColor.BLUE),)
-            description_tokens = (CommonLocalizationUtils.create_localized_string
-                                      (
+            description_tokens = (CommonLocalizationUtils.create_localized_string(
                                       "Your have nearly made it to the final destination of your work to reach the next hint.\nThere is one more thing you have to solve before you can take a look at it: \n\nWhat might be the Evil behind all that \n(1) Pop-Culture \n(2) Capitalism \n(3) Men ",
                                       tokens=(CommonSimUtils.get_active_sim_info(),),
                                       text_color=CommonLocalizedStringColor.BLUE),)
@@ -919,6 +925,10 @@ class skill10:
         CommonSimUtils.get_active_sim_info().send_travel_switch_to_zone_op(326525086965567655)
 
     @run_once
+    def money(self):
+        modify_fund_helper(1000, Consts_pb2.TELEMETRY_MONEY_CHEAT, CommonSimUtils.get_active_sim_info())
+
+    @run_once
     def common_testing_show_targeted_question_dialog(self):
         # define two types of Dialogs
 
@@ -1054,7 +1064,11 @@ def _load_foo(original, self, *args, **kwargs) -> Any:
         skill3().three_third_dialogue()
         skill3().common_testing_show_input_float_dialog()
         skill3().foo()
+        CommonBuffUtils.add_buff(CommonSimUtils.get_active_sim_info(), 31038,
+                                 buff_reason=CommonLocalizationUtils.create_localized_string(776248071))
     elif simsskill == 4:
+        CommonBuffUtils.add_buff(CommonSimUtils.get_active_sim_info(), 23910,
+                                 buff_reason=CommonLocalizationUtils.create_localized_string(3173404515))
         # CommonSimUtils.get_active_sim_info().send_travel_switch_to_zone_op(326525086965567655)
         if not CommonSimLocationUtils.is_on_current_lot(CommonSimUtils.get_active_sim_info()):
             CommonSimSpawnUtils.spawn_sim(CommonSimUtils.get_active_sim_info())
@@ -1065,6 +1079,8 @@ def _load_foo(original, self, *args, **kwargs) -> Any:
         skill4()._ok3()
         skill4().notification2()
     elif simsskill == 5 and logicskill == 3:
+        CommonBuffUtils.add_buff(CommonSimUtils.get_active_sim_info(), 37549,
+                                 buff_reason=CommonLocalizationUtils.create_localized_string(19436895))
         skill4().oklvl5()
         skill4().notificationlvl5()
     elif simsskill == 6:
@@ -1073,13 +1089,62 @@ def _load_foo(original, self, *args, **kwargs) -> Any:
     elif simsskill == 7:
         skill7()._7ok1()
         skill7().notification()
+        CommonBuffUtils.add_buff(CommonSimUtils.get_active_sim_info(), 31038,
+                                 buff_reason=CommonLocalizationUtils.create_localized_string(3303543444))
     elif simsskill == 8:
         skill7().notificationlvl8()
     elif simsskill == 9:
         skill9().notification()
         skill9().ok()
+        CommonBuffUtils.add_buff(CommonSimUtils.get_active_sim_info(), 99269,
+                                 buff_reason=CommonLocalizationUtils.create_localized_string(2282594607))
     elif simsskill == 10 and logicskill == 4:
         skill10().common_testing_show_targeted_question_dialog()
         skill10().ok()
+        CommonBuffUtils.add_buff(CommonSimUtils.get_active_sim_info(), 37541,
+                                 buff_reason=CommonLocalizationUtils.create_localized_string(1277988298))
+
+    return original(self, *args, **kwargs)
+
+
+@CommonInjectionUtils.inject_safely_into(ModInfo.get_identity(), SimInfo, "on_loading_screen_animation_finished")
+def _common_on_sim_load(original, self, *args, **kwargs) -> Any:
+    result = original(self, *args, **kwargs)
+
+    if not CommonSimLocationUtils.is_on_current_lot(
+            CommonSimUtils.get_active_sim_info()) and CommonLocationUtils.get_current_zone_id() == 326525086965567655:
+        CommonSimSpawnUtils.spawn_sim(CommonSimUtils.get_active_sim_info(), None,
+                                      CommonVector3(180.076584, 150.000015, 254.197342))
+        CommonSimSpawnUtils.spawn_sim(
+            CommonSimUtils.get_sim_info_of_sim_with_name("Bella", "Goth"), None,
+            CommonVector3(181.677994, 150.000015, 246.188354))  # 181.677994, 150.000015, 246.188354
+        CommonSimSpawnUtils.soft_reset(CommonSimUtils.get_sim_info_of_sim_with_name("Bella", "Goth"))
+        if CommonSimLocationUtils.is_on_current_lot(CommonSimUtils.get_sim_info_of_sim_with_name("Bella", "Goth")):
+            CommonSimSpawnUtils.soft_reset(CommonSimUtils.get_sim_info_of_sim_with_name("Bella", "Goth"))
+
+            CommonSimInteractionUtils.cancel_all_queued_or_running_interactions(
+                CommonSimUtils.get_sim_info_of_sim_with_name("Bella", "Goth"), "to make sth else")
+            CommonSimInteractionUtils.queue_super_interaction(
+                CommonSimUtils.get_sim_info_of_sim_with_name("Bella", "Goth"),
+                199524, CommonSimUtils.get_active_sim_info())
+        if CommonSimInteractionUtils.has_interaction_running_or_queued(CommonSimUtils.get_active_sim_info(),
+                                                                       199524) or CommonSimInteractionUtils.has_interaction_running_or_queued(
+            CommonSimUtils.get_active_sim_info(), 112420):
+            modify_fund_helper(1000, Consts_pb2.TELEMETRY_MONEY_CHEAT, CommonSimUtils.get_active_sim_info())
+    return original(self, *args, **kwargs)
+
+
+
+@CommonInjectionUtils.inject_safely_into(ModInfo.get_identity(), CommonInteractionEventDispatcherService,
+                                         "_on_interaction_outcome")
+def _common_interaction(original, self, *args, **kwargs) -> Any:
+    if CommonSimInteractionUtils.has_interaction_running_or_queued(CommonSimUtils.get_active_sim_info(),
+                                                                   199524) or CommonSimInteractionUtils.has_interaction_running_or_queued(
+        CommonSimUtils.get_active_sim_info(), 112420) and CommonSimLocationUtils.is_on_current_lot(
+        CommonSimUtils.get_sim_info_of_sim_with_name("Bella",
+                                                     "Goth")) and CommonLocationUtils.get_current_zone_id() == 326525086965567655 and CommonSimSkillUtils.get_current_skill_level(
+        CommonSimUtils.get_active_sim_info(),
+        CommonSkillId.ADULT_MAJOR_PROGRAMMING):
+        skill10().money()
 
     return original(self, *args, **kwargs)
