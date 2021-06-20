@@ -29,7 +29,7 @@ Außerdem kann es sein, das man mehr Gruppen hat als das Kleid hatte. Dann muss 
 ![image](https://user-images.githubusercontent.com/80634958/122678844-bb4dfb80-d1e8-11eb-9de6-4406b5513ff5.png)
 (rechts sieht man die ausgewählten files - man muss auf das icon klicken dann kommt ein kleiner oranger Kreis rundherum, links muss man dan auf join klicken)
 
-DIE NAMEN DER GRUPEN SPIELEN DABEI ÜBERHAUPT KEINE ROLLE was wichtig ist ist dang allein die AUFTEILUNG DER GRUPPEN UND DIE CUT NUMMER!!
+DIE NAMEN DER GRUPPEN SPIELEN DABEI ÜBERHAUPT KEINE ROLLE was wichtig ist ist dang allein die AUFTEILUNG DER GRUPPEN UND DIE CUT NUMMER!!
 
 Das muss man dann für jeden Layer wiederholen und alle neuen kleidungsstück - Layer spichern.
 
