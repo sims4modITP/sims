@@ -94,7 +94,7 @@ class skill1:
             )
             dialog = CommonBasicNotification(
                 "RUG SALE!!!",
-                "XXXX Area Rug\nHave a look at this beautiful handwoven rug! It is made of the finest Materials only, wisely chosen by Wayfair. The natural green colour is a perfect fit for all living rooms!\nMake your house feel like a HOME!\nDetails:\nName: XXXX Green Area Rug\nSize: Rectangle 5’ x 8’\nOverall Product Weight: 56 lb.\nFree Shipping on orders over $35.00\n",
+                "Timeothee Burststein Area Rug\nHave a look at this beautiful handwoven rug! It is made of the finest Materials only, wisely chosen by Wayfair. The natural green colour is a perfect fit for all living rooms!\nMake your house feel like a HOME!\nDetails:\nName: Timeothee Burststein Green Area Rug\nSize: Rectangle 5’ x 8’\nOverall Product Weight: 56 lb.\nFree Shipping on orders over $35.00\n",
                 title_tokens=title_tokens,
                 description_tokens=description_tokens,
             )
@@ -113,7 +113,7 @@ class skill1:
             description_tokens = (CommonLocalizationUtils.create_localized_string('Actual Story', tokens=(
                 CommonSimUtils.get_active_sim_info(),), text_color=CommonLocalizedStringColor.BLUE),)
             dialog = CommonOkDialog(
-                'XXXXXX...',  # this is where the headline is written -> insert headline here
+                'Burststein...',  # this is where the headline is written -> insert headline here
                 'That really does sound familiar. '
                 'Where do I know that name from? '
                 'Wasn’t it like a childhood friend or something?',
@@ -173,7 +173,7 @@ class skill1:
             )
             dialog = CommonBasicNotification(
                 "Mhmm... ",
-                "XXXX is still stuck in my head.\nWhere do I know you from?\n",
+                "Timeothee Burststein is still stuck in my head.\nWhere do I know you from?\n",
                 title_tokens=title_tokens,
                 description_tokens=description_tokens,
             )
@@ -193,8 +193,8 @@ class skill1:
                 CommonSimUtils.get_active_sim_info(),), text_color=CommonLocalizedStringColor.BLUE),)
             dialog = CommonOkDialog(
                 'GREEN! Of course!',  # this is where the headline is written -> insert headline here
-                'It was their favourite colour! And their Name!? Now I know who XXXX was. They were a good friend from back in school, '
-                'but they went missing when we were around 8 years old. How could I have forgotten!! I must have repressed the memories. '
+                'It was their favourite colour! And their Name!? Now I know who Timeothee Burststein was. They were a good friend from back in school, '
+                'but they went missing when we were around 8 years old. How could I have forgotten!! Little Timmy! I must have repressed the memories. '
                 'I have been really close with them; it was a big shock for me when they suddenly disappeared. Police never found out where they went or what happened with them. '
                 'I wish I could have at least said goodbye. But how does this rug end up having the same name as they had? I got to find out more about this.',
                 title_tokens=title_tokens,
@@ -555,7 +555,7 @@ class skill4:
                 CommonSimUtils.get_active_sim_info(),), text_color=CommonLocalizedStringColor.BLUE),)
             dialog = CommonOkDialog(
                 '',
-                'PAll those poor children. And their families. Friends. I remember the day XXXX went missing too well. I was little so I can’t recall all the details, but I remember the feeling. Of loosing someone. Someone important. Like loosing a part of myself.\nI remember we used to go for a swim in his pool. We used to play in the near forest, till our mothers would call us back for dinner. We used to be together. We used to be happy.\nBut then one day a police officer knocked at my door. She wanted to know if I had seen them today in school, and I said no – I thought they were ill. Turned out they were not ill at all. They left the house in the morning, giving their mom a goodbye kiss, but they never arrived at school. It was only after a few hours that someone had noticed. They instantly called their mother and the police. They searched everywhere but they could never find them. And I was just lost and numb. I didn’t know what to do or feel. After that, my Mother insisted on driving me to school for a very long time. As time passed, the pain got a bit easier to handle. Those poor kids.',
+                'PAll those poor children. And their families. Friends. I remember the day Timmy went missing too well. I was little so I can’t recall all the details, but I remember the feeling. Of loosing someone. Someone important. Like loosing a part of myself.\nI remember we used to go for a swim in his pool. We used to play in the near forest, till our mothers would call us back for dinner. We used to be together. We used to be happy.\nBut then one day a police officer knocked at my door. She wanted to know if I had seen them today in school, and I said no – I thought they were ill. Turned out they were not ill at all. They left the house in the morning, giving their mom a goodbye kiss, but they never arrived at school. It was only after a few hours that someone had noticed. They instantly called their mother and the police. They searched everywhere but they could never find them. And I was just lost and numb. I didn’t know what to do or feel. After that, my Mother insisted on driving me to school for a very long time. As time passed, the pain got a bit easier to handle. Those poor kids.',
                 # this is where the body part is written -> insert tet here
                 title_tokens=title_tokens,
                 description_tokens=description_tokens,
@@ -669,7 +669,7 @@ class skill6:
                 tokens=(CommonSimUtils.get_active_sim_info(),),
                 text_color=CommonLocalizedStringColor.DEFAULT),)
         ok_text = (
-            CommonLocalizationUtils.create_localized_string("That reminds me of my friend XXXX....Weird....",
+            CommonLocalizationUtils.create_localized_string("That reminds me of my friend Timmy....Weird....",
                                                             tokens=(CommonSimUtils.get_active_sim_info(),),
                                                             text_color=CommonLocalizedStringColor.GREEN),)
 
@@ -736,7 +736,7 @@ class skill6:
             )
             dialog = CommonBasicNotification(
                 "",
-                "XXXX?? What have they to do with all of this? Weren’t they kidnapped themselves? Why did they disappear? "
+                "Timeothee Burststein?? What have they to do with all of this? Weren’t they kidnapped themselves? Why did they disappear? "
                 "What if they are a part of this? No, I do not want to believe this. I cannot believe this. "
                 "If they are responsible for all that has happened to those poor children...\n\n"
                 "All the pain that I went through. I cannot let history repeat itself! I will not give up that easily! ",
@@ -904,8 +904,8 @@ class skill9:
                 # this is where the headline is written -> insert headline here
                 'One of them says, that there has been struggles with the latest delivery and that they can’t seem to shut her down. That must be another child!! Who is she? Poor little thing. But I will safe her! '
                 'With this piece of information, I am actually able to prove what’s been happening here over the past year! There is messages and photos. It’s all right there!!\n'
-                'But wait what is this? XXXX?? Their name again? No, this cant be?'
-                'It says here that the owner of this laptop is XXXX!? Does that mean they are the Boss to all this? What happened after they went missing? My childhood friend – what kind of monster have they become.\n'
+                'But wait what is this? Timeothee Burststein?? Their name again? No, this cant be?'
+                'It says here that the owner of this laptop is Timmy!? Does that mean they are the Boss to all this? What happened after they went missing? My childhood friend – what kind of monster have they become.\n'
                 'I feel sick. This is too much. It must be made public! I will stop them!!',
                 # this is where the body part is written -> insert tet here
                 title_tokens=title_tokens,
@@ -1021,7 +1021,7 @@ class skill10:
                 CommonSimUtils.get_active_sim_info(),), text_color=CommonLocalizedStringColor.BLUE),)
             dialog = CommonOkDialog(
                 "",
-                "You published everything that you found, and the police was able to find all of the ones involved into child traffic including XXXX - they will all be sent to jail. Some of the kids have been found and are now back together with their families and so very thankful to the anonymous human who saved their lives! Police is still searching for the rest of them, but they got an informer that was willing to tell them everything in order to lessen their punishment. After all, almost all kids are back in the life they deserve – surrounded by a loving family. A hashtag started to spread, where families thank you for saving their children and giving them their normal lives back. The word has spread all over the world, in in every newspaper and on every screen. Wayfair got eliminated. You made it!",
+                "You published everything that you found, and the police was able to find all of the ones involved into child traffic including Timeothee Burststein - they will all be sent to jail. Some of the kids have been found and are now back together with their families and so very thankful to the anonymous human who saved their lives! Police is still searching for the rest of them, but they got an informer that was willing to tell them everything in order to lessen their punishment. After all, almost all kids are back in the life they deserve – surrounded by a loving family. A hashtag started to spread, where families thank you for saving their children and giving them their normal lives back. The word has spread all over the world, in in every newspaper and on every screen. Wayfair got eliminated. You made it!",
                 # this is where the body part is written -> insert tet here
 
                 title_tokens=title_tokens,
