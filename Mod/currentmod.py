@@ -211,6 +211,8 @@ class skill1:
 
 
 class skill2:
+    
+    @run_once
     def ok(self):
         try:
             # LocalizedStrings within other LocalizedStrings
@@ -1058,7 +1060,7 @@ def _load_foo(original, self, *args, **kwargs) -> Any:
     if simsskill == 2:
         skill2().ok()
         skill2().item()
-    elif simsskill >= 3 and logicskill >= 2:
+    if simsskill >= 3 and logicskill >= 2:
         skill3().ok1()
         skill3().ok()
         skill3().three_third_dialogue()
@@ -1066,7 +1068,7 @@ def _load_foo(original, self, *args, **kwargs) -> Any:
         skill3().foo()
         CommonBuffUtils.add_buff(CommonSimUtils.get_active_sim_info(), 31038,
                                  buff_reason=CommonLocalizationUtils.create_localized_string(776248071))
-    elif simsskill >= 4 and logicskill >= 2:
+    if simsskill >= 4 and logicskill >= 2:
         CommonBuffUtils.add_buff(CommonSimUtils.get_active_sim_info(), 23910,
                                  buff_reason=CommonLocalizationUtils.create_localized_string(3173404515))
         # CommonSimUtils.get_active_sim_info().send_travel_switch_to_zone_op(326525086965567655)
@@ -1078,27 +1080,27 @@ def _load_foo(original, self, *args, **kwargs) -> Any:
         skill4()._ok2()
         skill4()._ok3()
         skill4().notification2()
-    elif simsskill >= 5 and logicskill >= 3:
+    if simsskill >= 5 and logicskill >= 3:
         CommonBuffUtils.add_buff(CommonSimUtils.get_active_sim_info(), 37549,
                                  buff_reason=CommonLocalizationUtils.create_localized_string(19436895))
         skill4().oklvl5()
         skill4().notificationlvl5()
-    elif simsskill >= 6 and logicskill >= 3:
+    if simsskill >= 6 and logicskill >= 3:
         skill6().notification()
         skill6().common_testing_show_targeted_question_dialog()
-    elif simsskill >= 7 and logicskill >= 3:
+    if simsskill >= 7 and logicskill >= 3:
         skill7()._7ok1()
         skill7().notification()
         CommonBuffUtils.add_buff(CommonSimUtils.get_active_sim_info(), 31038,
                                  buff_reason=CommonLocalizationUtils.create_localized_string(3303543444))
-    elif simsskill >= 8 and logicskill >= 3:
+    if simsskill >= 8 and logicskill >= 3:
         skill7().notificationlvl8()
-    elif simsskill >= 9 and logicskill >= 3:
+    if simsskill >= 9 and logicskill >= 3:
         skill9().notification()
         skill9().ok()
         CommonBuffUtils.add_buff(CommonSimUtils.get_active_sim_info(), 99269,
                                  buff_reason=CommonLocalizationUtils.create_localized_string(2282594607))
-    elif simsskill >= 10 and logicskill >= 4:
+    if simsskill >= 10 and logicskill >= 4:
         skill10().common_testing_show_targeted_question_dialog()
         skill10().ok()
         CommonBuffUtils.add_buff(CommonSimUtils.get_active_sim_info(), 37541,
